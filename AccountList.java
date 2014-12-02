@@ -30,9 +30,9 @@ public class AccountList
 	public void saveAccountList(ArrayList<Account> accountList, ArrayList<AccountDetails> accountDetailsList){
 		
 		try{
-		File account3 = new File("account3.dat");
+		File accF = new File("accF.dat");
 		
-		FileOutputStream fos = new FileOutputStream(account3);
+		FileOutputStream fos = new FileOutputStream(accF);
 		
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
@@ -50,8 +50,8 @@ public class AccountList
 		
 		try
 		{
-			File account3 = new File("account3.dat");
-			FileInputStream fis = new FileInputStream(account3);
+			File accF = new File("account.dat");
+			FileInputStream fis = new FileInputStream(accF);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			accountList = (ArrayList<Account>) ois.readObject();
 			accountDetailsList = (ArrayList<AccountDetails>) ois.readObject();
