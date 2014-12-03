@@ -28,30 +28,23 @@ public class BankSystem extends GuiFrame{
 			label.setBounds(300,25,300,100);
 			label.setFont(new Font("Courier New", Font.PLAIN,40));
 		
-			
 			FunctionButtonHandler handler = new FunctionButtonHandler();
-			
-			showAccountDetailButton = new JButton("Account Details");
-			showAccountDetailButton.addActionListener(handler);
-			showAccountDetailButton.setBounds(120,130,200,100);
-			showAccountDetailButton.setFont(new Font("Courier New", Font.PLAIN,18));
 			
 			showAccountBalanceButton = new JButton("Balance");
 			showAccountBalanceButton.addActionListener(handler);
-			showAccountBalanceButton.setBounds(390,130,200,100);
+			showAccountBalanceButton.setBounds(230,130,300,50);
 			showAccountBalanceButton.setFont(new Font("Courier New", Font.PLAIN,20));
 			
 			withdrawButton = new JButton("Withdraw");
 			withdrawButton.addActionListener(handler);
-			withdrawButton.setBounds(120,280,200,100);
+			withdrawButton.setBounds(230,210,300,50);
 			withdrawButton.setFont(new Font("Courier New", Font.PLAIN,20));
 		
 			lodgeButton = new JButton("Lodge");
 			lodgeButton.addActionListener(handler);
-			lodgeButton.setBounds(390,280,200,100);
+			lodgeButton.setBounds(230,290,300,50);
 			lodgeButton.setFont(new Font("Courier New", Font.PLAIN,20));
 		
-			gui.cPane.add(showAccountDetailButton);
 			gui.cPane.add(showAccountBalanceButton);
 			gui.cPane.add(withdrawButton);
 			gui.cPane.add(lodgeButton);
@@ -68,19 +61,8 @@ public class BankSystem extends GuiFrame{
 	private class FunctionButtonHandler implements ActionListener{
 	public void actionPerformed(ActionEvent e)
 	{
-		if(e.getSource() == showAccountDetailButton)
-		{
-			try{
-				
-					FunctionList function = new FunctionList();
-					function.showAccountDetails();		
-					gui.setVisible(false);
-				}
-				catch(Exception exception){
-					JOptionPane.showMessageDialog(null,"Error occurs");
-				}
-		}
-		else if(e.getSource() == withdrawButton)
+
+		if(e.getSource() == withdrawButton)
 		{
 			try{		
 					FunctionList function = new FunctionList();
@@ -120,5 +102,8 @@ public class BankSystem extends GuiFrame{
 		}
 	}
 	}
-	
+	public static void main(String args[])
+	{
+		BankSystem bb = new BankSystem();
+	}	
 }

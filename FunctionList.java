@@ -13,12 +13,12 @@ public class FunctionList extends GuiFrame{
 	JTextField amountField;
 	GuiFrame gui;
 	Account account = SecondMainPage.account;
-	AccountDetails accountD = SecondMainPage.accountD;
+//	AccountDetails accountD = SecondMainPage.accountD;
 	ArrayList<Account> accountList = SecondMainPage.accountList;
-	ArrayList<AccountDetails> accountDetailsList = SecondMainPage.accountDetailsList;
+//	ArrayList<AccountDetails> accountDetailsList = SecondMainPage.accountDetailsList;
 	int index = SecondMainPage.index;					//the position of the account in an array list
 	
-	public void showAccountDetails(){
+/*	public void showAccountDetails(){
 		
 		gui = new GuiFrame();
 		gui.getGuiFrame();
@@ -73,7 +73,7 @@ public class FunctionList extends GuiFrame{
 		exitButton.addActionListener(handler);
 		gui.cPane.add(exitButton);
 		gui.setVisible(true);
-	}
+	}*/
 
 		public void showAccountBalance(){
 				
@@ -189,22 +189,6 @@ public class FunctionList extends GuiFrame{
 		System.exit(0);
 	}
 	
-	private class ShowAccountDetailsButtonHandler implements ActionListener{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(e.getSource() == backButton)
-			{
-				BankSystem bankSystem = new BankSystem();
-				gui.setVisible(false);
-			}
-			else if(e.getSource() == exitButton)
-			{
-				JOptionPane.showMessageDialog(null,"Thanks For Using! Bye...","Exit Message",JOptionPane.INFORMATION_MESSAGE);
-				System.exit(0);
-			}
-		}	
-	}
-	
 		private class ShowAccountBalanceButtonHandler implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{
@@ -248,7 +232,7 @@ public class FunctionList extends GuiFrame{
 				accountList.set(index,account);
 				
 				AccountList accountL = new AccountList();
-				accountL.saveAccountList(accountList,accountDetailsList);
+				accountL.saveAccountList(accountList);
 				
 				BankSystem bankSystem = new BankSystem();
 				gui.setVisible(false);
@@ -289,7 +273,7 @@ public class FunctionList extends GuiFrame{
 				accountList.set(index,account);
 				
 				AccountList accountL = new AccountList();
-				accountL.saveAccountList(accountList,accountDetailsList);
+				accountL.saveAccountList(accountList);
 				
 				BankSystem bankSystem = new BankSystem();
 				gui.setVisible(false);

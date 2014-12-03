@@ -6,19 +6,19 @@ public class AccountList
 {
 	ArrayList<Account> accountList = new ArrayList<Account>();
 		
-	ArrayList<AccountDetails> accountDetailsList = new ArrayList<AccountDetails>();;
+//	ArrayList<AccountDetails> accountDetailsList = new ArrayList<AccountDetails>();;
 	
 	
 	public void addAccount(){
 		try{
 		accountList = new ArrayList<Account>();
-		accountDetailsList = new ArrayList<AccountDetails>();;
+	//	accountDetailsList = new ArrayList<AccountDetails>();;
 		Account account1 = new Account(123456,123456,5000);
 		accountList.add(account1);
-		AccountDetails accountD1 = new AccountDetails(123456,"Edward Sin", 'M', 20, "21Nov1994", "115[A] An Sean Mhuileann, Kerry", "(087)7796224");
-		accountDetailsList.add(accountD1);
+	//	AccountDetails accountD1 = new AccountDetails(123456,"Edward Sin", 'M', 20, "21Nov1994", "115[A] An Sean Mhuileann, Kerry", "(087)7796224");
+	//	accountDetailsList.add(accountD1);
 	
-		saveAccountList(accountList,accountDetailsList);
+		saveAccountList(accountList);
 		}
 		catch(Exception e)
 		{
@@ -27,7 +27,7 @@ public class AccountList
 	}
 	
 	
-	public void saveAccountList(ArrayList<Account> accountList, ArrayList<AccountDetails> accountDetailsList){
+	public void saveAccountList(ArrayList<Account> accountList){
 		
 		try{
 		File accF = new File("accF.dat");
@@ -37,7 +37,6 @@ public class AccountList
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
 		oos.writeObject(accountList);
-		oos.writeObject(accountDetailsList);
 		
 		oos.close();
 		}
@@ -50,11 +49,11 @@ public class AccountList
 		
 		try
 		{
-			File accF = new File("account.dat");
+			File accF = new File("accF.dat");
 			FileInputStream fis = new FileInputStream(accF);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			accountList = (ArrayList<Account>) ois.readObject();
-			accountDetailsList = (ArrayList<AccountDetails>) ois.readObject();
+//			accountDetailsList = (ArrayList<AccountDetails>) ois.readObject();
 			
 			ois.close();
 		}
@@ -68,10 +67,6 @@ public class AccountList
 	public ArrayList getRetrieveAccountList()
 	{
 		return accountList;
-	}
-	public ArrayList getRetrieveAccountDetailsList()
-	{
-		return accountDetailsList;
 	}
 	
 	public static void main(String args[])
