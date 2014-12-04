@@ -13,177 +13,117 @@ public class FunctionList extends GuiFrame{
 	JTextField amountField;
 	GuiFrame gui;
 	Account account = SecondMainPage.account;
-//	AccountDetails accountD = SecondMainPage.accountD;
 	ArrayList<Account> accountList = SecondMainPage.accountList;
-//	ArrayList<AccountDetails> accountDetailsList = SecondMainPage.accountDetailsList;
 	int index = SecondMainPage.index;					//the position of the account in an array list
 	
-/*	public void showAccountDetails(){
-		
+		public void showAccountBalance(){				//the show account balance gui
 		gui = new GuiFrame();
 		gui.getGuiFrame();
 		gui.setTitle("Account Details");
 		
-		JLabel accountLabel = new JLabel("Account Details");
-		accountLabel.setBounds(250,25,300,100);
-		accountLabel.setFont(new Font("Courier New", Font.PLAIN,40));
-		
-		gui.cPane.add(accountLabel);
-		JLabel accountNumber = new JLabel("Account Name: " + accountD.getName());
-		accountNumber.setBounds(115,90,400,100);
-		accountNumber.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(accountNumber);
-		
-		JLabel accountGender = new JLabel("Gender: " + accountD.getGender());
-		accountGender.setBounds(115,140,400,100);
-		accountGender.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(accountGender);
-		
-		JLabel accountAge = new JLabel("Age: " + accountD.getAge());
-		accountAge.setBounds(115,190,400,100);
-		accountAge.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(accountAge);
-		
-		JLabel accountAddress = new JLabel("Address:" + accountD.getAddress());
-		accountAddress.setBounds(340,145,400,100);
-		accountAddress.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(accountAddress);
-		
-		JLabel accountDateOfBirth = new JLabel("Date Of Birth: " + accountD.getDateOfBirth());
-		accountDateOfBirth.setBounds(340,205,400,100);
-		accountDateOfBirth.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(accountDateOfBirth);
-		
-		JLabel accountPhoneNum = new JLabel("PhoneNum: " + accountD.getPhonenum());
-		accountPhoneNum.setBounds(340,255,400,100);
-		accountPhoneNum.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(accountPhoneNum);
-		
-		ShowAccountDetailsButtonHandler handler = new ShowAccountDetailsButtonHandler();
-		
-		backButton = new JButton("Back");
-		backButton.setBounds(110,340,110,50);
-		backButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		backButton.addActionListener(handler);
-		gui.cPane.add(backButton);
-		
-		exitButton = new JButton("Exit");
-		exitButton.setBounds(550,340,110,50);
-		exitButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		exitButton.addActionListener(handler);
-		gui.cPane.add(exitButton);
-		gui.setVisible(true);
-	}*/
-
-		public void showAccountBalance(){
-				
-		gui = new GuiFrame();
-		gui.getGuiFrame();
-		gui.setTitle("Account Details");
-		
-		JLabel balanceMessage = new JLabel("Balance: " + String.format("%.2f",account.getAccountBalance()));
-		balanceMessage.setBounds(230,130,400,100);
+		JLabel balanceMessage = new JLabel("Balance: " + String.format("%.2f",account.getAccountBalance()));		//create the balance label
+		balanceMessage.setBounds(230,130,400,100);								//set the style of the balance label
 		balanceMessage.setFont(new Font("Courier New", Font.PLAIN,20));
-		gui.cPane.add(balanceMessage);
+		gui.cPane.add(balanceMessage);											//add the label to cPane
 		
 		
-		ShowAccountBalanceButtonHandler handler = new ShowAccountBalanceButtonHandler();
+		ShowAccountBalanceButtonHandler handler = new ShowAccountBalanceButtonHandler();			//create the handler
 		
-		backButton = new JButton("Back");
-		backButton.setBounds(110,340,110,50);
+		backButton = new JButton("Back");									//create a back button
+		backButton.setBounds(110,340,110,50);								//set the style of the back button
 		backButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		backButton.addActionListener(handler);
-		gui.cPane.add(backButton);
+		backButton.addActionListener(handler);							//add the listener to the button
+		gui.cPane.add(backButton);											//add the button to cPane
 		
-		exitButton = new JButton("Exit");
-		exitButton.setBounds(550,340,110,50);
+		exitButton = new JButton("Exit");								//create a exit button
+		exitButton.setBounds(550,340,110,50);							//set the style of the exit button
 		exitButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		exitButton.addActionListener(handler);
-		gui.cPane.add(exitButton);
+		exitButton.addActionListener(handler);							//add the listener to the button
+		gui.cPane.add(exitButton);										//add the button to cPane
 		
-		gui.setVisible(true);
+		gui.setVisible(true);												//set the visible to true
 	}
 
 	
-	public void withdrawMoney(){
+	public void withdrawMoney(){					//the withdraw money gui
 
 		gui = new GuiFrame();
 		gui.getGuiFrame();
 		gui.setTitle("Account Details");
 		
-		JLabel withdraw = new JLabel("Withdraw");
-		withdraw.setBounds(250,25,300,100);
+		JLabel withdraw = new JLabel("Withdraw");					//create a withdraw title label
+		withdraw.setBounds(250,25,300,100);							//set the style of the withdraw label
 		withdraw.setFont(new Font("Courier New", Font.PLAIN,40));
-		gui.cPane.add(withdraw);
+		gui.cPane.add(withdraw);									//add the label to cPane
 		
-		JLabel withdrawMessage = new JLabel("Please enter the amount: ");
-		withdrawMessage.setBounds(130,170,400,100);
-		withdrawMessage.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(withdrawMessage);
+		JLabel withdrawMessage = new JLabel("Please enter the amount: ");		//create the withdraw label
+		withdrawMessage.setBounds(130,170,400,100);								//set the style of the withdraw label
+		withdrawMessage.setFont(new Font("Courier New", Font.PLAIN,17));		
+		gui.cPane.add(withdrawMessage);											//add the label to cPane
 		
-		WithdrawButtonHandler handler = new WithdrawButtonHandler();
+		WithdrawButtonHandler handler = new WithdrawButtonHandler();			//create the handler
 		
-		amountField = new JTextField(15);
-		amountField.setBounds(370,205,200,25);
-		amountField.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(amountField);
+		amountField = new JTextField(15);									//create an amount field
+		amountField.setBounds(370,205,200,25);								//set the style of the amount field
+		amountField.setFont(new Font("Courier New", Font.PLAIN,17));		
+		gui.cPane.add(amountField);											//add the field to cPane
 		
-		backButton = new JButton("Back");
-		backButton.setBounds(110,340,110,50);
+		backButton = new JButton("Back");									//create a back button
+		backButton.setBounds(110,340,110,50);								//set the style of the back button
 		backButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		backButton.addActionListener(handler);
-		gui.cPane.add(backButton);
+		backButton.addActionListener(handler);							//add the listener to the button
+		gui.cPane.add(backButton);											//add the button to cPane
 		
-		confirmButton = new JButton("Confirm");
-		confirmButton.setBounds(550,340,110,50);
+		confirmButton = new JButton("Confirm");								//create a confirm button
+		confirmButton.setBounds(550,340,110,50);							//set the style of the confirm button
 		confirmButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		confirmButton.addActionListener(handler);
-		gui.cPane.add(confirmButton);
+		confirmButton.addActionListener(handler);							//add the listener to the button
+		gui.cPane.add(confirmButton);										//add the button to cPane
 		
-		gui.setVisible(true);
+		gui.setVisible(true);												//set the visible to true
 	}
 	
-	public void lodgeMoney(){
+	public void lodgeMoney(){				//the lodge money gui
 
 		gui = new GuiFrame();
 		gui.getGuiFrame();
 		gui.setTitle("Account Details");
 		
-		JLabel lodge = new JLabel("Lodge Money");
-		lodge.setBounds(250,25,300,100);
+		JLabel lodge = new JLabel("Lodge Money");					//create a lodge title label
+		lodge.setBounds(250,25,300,100);							//set the style of the withdraw label
 		lodge.setFont(new Font("Courier New", Font.PLAIN,40));
-		gui.cPane.add(lodge);
+		gui.cPane.add(lodge);										//add the label to cPane
 		
-		JLabel lodgeMessage = new JLabel("Please enter the amount: ");
-		lodgeMessage.setBounds(130,170,400,100);
+		JLabel lodgeMessage = new JLabel("Please enter the amount: ");		//create the lodge label
+		lodgeMessage.setBounds(130,170,400,100);								//set the style of the lodge label
 		lodgeMessage.setFont(new Font("Courier New", Font.PLAIN,17));
-		gui.cPane.add(lodgeMessage);
+		gui.cPane.add(lodgeMessage);											//add the label to cPane
 		
-		amountField = new JTextField(15);
-		amountField.setBounds(370,205,200,25);
+		amountField = new JTextField(15);									//create an amount field
+		amountField.setBounds(370,205,200,25);								//set the style of the amount field
 		amountField.setFont(new Font("Courier New", Font.PLAIN,17));
 		
-		gui.cPane.add(amountField);
+		gui.cPane.add(amountField);											//add the field to cPane
 		
-		LodgeButtonHandler handler = new LodgeButtonHandler();
+		LodgeButtonHandler handler = new LodgeButtonHandler();			//create the handler
 		
-		backButton = new JButton("Back");
-		backButton.setBounds(110,340,110,50);
+		backButton = new JButton("Back");									//create a back button
+		backButton.setBounds(110,340,110,50);								//set the style of the back button
 		backButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		backButton.addActionListener(handler);
-		gui.cPane.add(backButton);
+		backButton.addActionListener(handler);							//add the listener to the button
+		gui.cPane.add(backButton);											//add the button to cPane
 		
-		confirmButton = new JButton("Confirm");
-		confirmButton.setBounds(550,340,110,50);
+		confirmButton = new JButton("Confirm");								//create a confirm button
+		confirmButton.setBounds(550,340,110,50);							//set the style of the confirm button
 		confirmButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		confirmButton.addActionListener(handler);
-		gui.cPane.add(confirmButton);
+		confirmButton.addActionListener(handler);							//add the listener to the button
+		gui.cPane.add(confirmButton);										//add the button to cPane
 		
-		gui.setVisible(true);
+		gui.setVisible(true);												//set the visible to true
 	}
 	
 	
-	public void exit(){
+	public void exit(){					//display the exit message and exit the system
 		
 		JOptionPane.showMessageDialog(null,"Thanks For Using! Bye...","Exit Message",JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
@@ -208,33 +148,33 @@ public class FunctionList extends GuiFrame{
 	private class WithdrawButtonHandler implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{
-			if(e.getSource() == confirmButton)
+			if(e.getSource() == confirmButton)					//function when is clicked on the confirm button
 			{
 				
-				try{
+				try{												//start the transaction
 				
 				double amount = Double.parseDouble(amountField.getText());
 				double balance = account.getAccountBalance();
 				
 				
-				if(balance > amount)
+				if(balance > amount)									//function if the transaction is successful
 				{
 					balance -= amount;
 					JOptionPane.showMessageDialog(null,"Transaction Done");
 				}
-				else
+				else													//function if the transaction is fail
 				{
 					JOptionPane.showMessageDialog(null,"Invalid! Please enter the valid amount!");
 				}
 				
-				account.setAccountBalance(balance);
+				account.setAccountBalance(balance);						//Set the latest account balance
 				
-				accountList.set(index,account);
+				accountList.set(index,account);							//change the detail of the account in the list of the account
 				
-				AccountList accountL = new AccountList();
+				AccountList accountL = new AccountList();				//create an accountList to save the account detail to the "accF.dat" file
 				accountL.saveAccountList(accountList);
 				
-				BankSystem bankSystem = new BankSystem();
+				BankSystem bankSystem = new BankSystem();				//back to the bank system
 				gui.setVisible(false);
 				}
 				catch(Exception exception)
@@ -242,9 +182,9 @@ public class FunctionList extends GuiFrame{
 					JOptionPane.showMessageDialog(null,"Retrieve Error","Error",JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
-			else if(e.getSource() == backButton)
+			else if(e.getSource() == backButton)						//function when is clicked on the back button
 			{
-				BankSystem bankSystem = new BankSystem();
+				BankSystem bankSystem = new BankSystem();				//back to the bank system
 				gui.setVisible(false);
 			}
 			
@@ -253,29 +193,29 @@ public class FunctionList extends GuiFrame{
 		private class LodgeButtonHandler implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{
-			if(e.getSource() == confirmButton)
+			if(e.getSource() == confirmButton)					//function when is clicked on the confirm button
 			{
 				try{
 				double amount = Double.parseDouble(amountField.getText());
 				double balance = account.getAccountBalance();
 				
-				if(amount <= 50)
+				if(amount <= 50)								//function if the transaction is fail
 				{
 					JOptionPane.showMessageDialog(null,"Invalid! Please enter the valid amount!");
 				}
-				else
+				else											//function if the transaction is successful
 				{
 					balance += amount;
 					JOptionPane.showMessageDialog(null,"Transaction Done");
 				}
-				account.setAccountBalance(balance);
+				account.setAccountBalance(balance);				//Set the latest account balance
 				
-				accountList.set(index,account);
+				accountList.set(index,account);					//change the detail of the account in the list of the account
 				
-				AccountList accountL = new AccountList();
+				AccountList accountL = new AccountList();		//create an accountList to save the account detail to the "accF.dat" file
 				accountL.saveAccountList(accountList);
 				
-				BankSystem bankSystem = new BankSystem();
+				BankSystem bankSystem = new BankSystem();		//back to the bank system
 				gui.setVisible(false);
 				}
 				catch(Exception exception)
@@ -283,7 +223,7 @@ public class FunctionList extends GuiFrame{
 					JOptionPane.showMessageDialog(null,"Retrieve Error","Error",JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
-			else if(e.getSource() == backButton)
+			else if(e.getSource() == backButton)			//function when is clicked on the back button
 			{
 				BankSystem bankSystem = new BankSystem();
 				gui.setVisible(false);

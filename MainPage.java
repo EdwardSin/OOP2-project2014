@@ -12,7 +12,7 @@ public class MainPage extends GuiFrame implements ActionListener{
 		gui = new GuiFrame();
 		gui.getGuiFrame();
 		
-		JLabel label = new JLabel("Welcome to AIB Bank");
+		JLabel label = new JLabel("Welcome to AIB Bank");		//create a title
 		
 		gui.setTitle("Bank System");
 		
@@ -21,8 +21,8 @@ public class MainPage extends GuiFrame implements ActionListener{
 		label.setFont(new Font("Courier New", Font.PLAIN,50));
 		gui.setVisible(true);
 		
-		startButton = new JButton("Start");
-		startButton.setBounds(270,210,200,100);
+		startButton = new JButton("Start");					//create a start button
+		startButton.setBounds(270,210,200,100);				//set the style of start button
 		startButton.setFont(new Font("Courier New", Font.PLAIN,30));
 		startButton.addActionListener(this);
 		gui.cPane.add(startButton);

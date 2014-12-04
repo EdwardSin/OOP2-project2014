@@ -21,64 +21,57 @@ public class SecondMainPage extends GuiFrame{
 	
 	public SecondMainPage(){
 		
-		accountL = new AccountList();
-		accountL.retrieveAccountList();
+		accountL = new AccountList();							//Create an object of AccountList
+		accountL.retrieveAccountList();							//retrieve the data of "accF.data" file
 		
-		accountList = accountL.getRetrieveAccountList();
+		accountList = accountL.getRetrieveAccountList();		//get the retrieve Account List
 		
 		gui= new GuiFrame();
 		gui.getGuiFrame();
 		
 		gui.setTitle("Bank System");
 	
-		JLabel label = new JLabel("AIB Bank");
+		JLabel label = new JLabel("AIB Bank");								//set the label
 		
 		gui.cPane.add(label);
-		label.setBounds(275,25,300,100);
+		label.setBounds(275,25,300,100);								//set the style of label
 		label.setFont(new Font("Courier New", Font.PLAIN,40));
 		
-		JLabel accountLabel = new JLabel("Account: ");
-		accountLabel.setBounds(175,150,140,100);
+		JLabel accountLabel = new JLabel("Account: ");					//create account label
+		accountLabel.setBounds(175,150,140,100);						//set the style of account label
 		accountLabel.setFont(new Font("Courier New", Font.PLAIN,25));
-		gui.cPane.add(accountLabel);
+		gui.cPane.add(accountLabel);									//add the button to cPane
 		
-		JLabel passwordLabel = new JLabel("Password: ");
-		passwordLabel.setBounds(175,190,160,100);
+		JLabel passwordLabel = new JLabel("Password: ");				//create password label
+		passwordLabel.setBounds(175,190,160,100);						//set the stle of password label
 		passwordLabel.setFont(new Font("Courier New", Font.PLAIN,25));
-		gui.cPane.add(passwordLabel);
+		gui.cPane.add(passwordLabel);									//add the button to cPane
 		
-		accountField = new JTextField(8);
-		accountField.setBounds(340,185,250,30);
+		accountField = new JTextField(8);								//create account field
+		accountField.setBounds(340,185,250,30);							//set the style of account field
 		accountField.setFont(new Font("Courier New", Font.PLAIN,30));
-		gui.cPane.add(accountField);
+		gui.cPane.add(accountField);									//add the field to cPane
 		
-		passwordField = new JPasswordField(8);
-		passwordField.setBounds(340,220,250,30);
+		passwordField = new JPasswordField(8);							//create password field
+		passwordField.setBounds(340,220,250,30);						//set the style of password field
 		passwordField.setFont(new Font("Courier New", Font.PLAIN,30));
-		gui.cPane.add(passwordField);
+		gui.cPane.add(passwordField);									//add the password field to cPane
 		
-		ButtonHandler handler = new ButtonHandler();
+		ButtonHandler handler = new ButtonHandler();		//create the handler
 		
-		confirmButton = new JButton("Confirm");
-		confirmButton.setBounds(390,305,110,50);
+		confirmButton = new JButton("Confirm");				//create a confirm button
+		confirmButton.setBounds(390,305,110,50);			//set the style of confirm button
 		confirmButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		confirmButton.addActionListener(handler);
-		gui.cPane.add(confirmButton);
+		confirmButton.addActionListener(handler);			//add the listener to the button
+		gui.cPane.add(confirmButton);						//add the button to cPane
 		
-		exitButton = new JButton("Exit");
-		exitButton.setBounds(260,305,110,50);
+		exitButton = new JButton("Exit");					//create an exit button
+		exitButton.setBounds(260,305,110,50);				//set the style of button
 		exitButton.setFont(new Font("Courier New", Font.PLAIN,16));
-		exitButton.addActionListener(handler);
-		gui.cPane.add(exitButton);
+		exitButton.addActionListener(handler);				//add the listener to the button
+		gui.cPane.add(exitButton);							//add the button to cPane
 		
 		gui.setVisible(true);
-	}
-	
-	public static void main(String args[])
-	{
-		
-		SecondMainPage main = new SecondMainPage();
-		
 	}
 	
 	private class ButtonHandler implements ActionListener{
@@ -86,16 +79,16 @@ public class SecondMainPage extends GuiFrame{
 		{
 			if(e.getSource() == exitButton)
 			{
-				FunctionList function = new FunctionList();
+				FunctionList function = new FunctionList();						//create the function object to use the exit method
 				function.exit();
 			}
 			else if(e.getSource() == confirmButton)
 			{
 				try{
-					accountNumber = Integer.parseInt(accountField.getText());
-					accountPassword = Integer.parseInt(passwordField.getText());
+					accountNumber = Integer.parseInt(accountField.getText());		//get the text which the user type in to the account field
+					accountPassword = Integer.parseInt(passwordField.getText());	//get the text which the user type in to the password field
 				
-						Iterator<Account> itr = accountList.iterator();
+						Iterator<Account> itr = accountList.iterator();				//create the iterator to check the accountNumber and accountPassword whether is in the account list or not
 						
 							while(itr.hasNext())
 							{
@@ -114,9 +107,9 @@ public class SecondMainPage extends GuiFrame{
 									break;
 								}
 							}
-							if(valid == false)
+							if(valid == false)													//display an error message if there is no such kind of account or wrong password
 							{
-								JOptionPane.showMessageDialog(null,"3Please enter the valid account number and password","Error!!",JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.showMessageDialog(null,"Please enter the valid account number and password","Error!!",JOptionPane.INFORMATION_MESSAGE);
 							}
 				}
 				catch(NumberFormatException NFException)

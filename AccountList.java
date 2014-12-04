@@ -4,20 +4,12 @@ import java.io.*;
 import javax.swing.*;
 public class AccountList 
 {
-	ArrayList<Account> accountList = new ArrayList<Account>();
-		
-//	ArrayList<AccountDetails> accountDetailsList = new ArrayList<AccountDetails>();;
+	private ArrayList<Account> accountList = new ArrayList<Account>();
 	
-	
-	public void addAccount(){
+	public void addAccount(Account account){				//add the attibute to the accountList
 		try{
 		accountList = new ArrayList<Account>();
-	//	accountDetailsList = new ArrayList<AccountDetails>();;
-		Account account1 = new Account(123456,123456,5000);
-		accountList.add(account1);
-	//	AccountDetails accountD1 = new AccountDetails(123456,"Edward Sin", 'M', 20, "21Nov1994", "115[A] An Sean Mhuileann, Kerry", "(087)7796224");
-	//	accountDetailsList.add(accountD1);
-	
+		accountList.add(account);
 		saveAccountList(accountList);
 		}
 		catch(Exception e)
@@ -27,7 +19,7 @@ public class AccountList
 	}
 	
 	
-	public void saveAccountList(ArrayList<Account> accountList){
+	public void saveAccountList(ArrayList<Account> accountList){			//save the accountlist to a file called "accF.dat"
 		
 		try{
 		File accF = new File("accF.dat");
@@ -45,7 +37,7 @@ public class AccountList
 			JOptionPane.showMessageDialog(null,"Error");
 		}
 	}
-	public void retrieveAccountList(){
+	public void retrieveAccountList(){							//retrieve the accountlist from the file called "accF.dat"
 		
 		try
 		{
@@ -53,7 +45,6 @@ public class AccountList
 			FileInputStream fis = new FileInputStream(accF);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			accountList = (ArrayList<Account>) ois.readObject();
-//			accountDetailsList = (ArrayList<AccountDetails>) ois.readObject();
 			
 			ois.close();
 		}
@@ -64,15 +55,15 @@ public class AccountList
 
 	}
 	
-	public ArrayList getRetrieveAccountList()
+	public ArrayList getRetrieveAccountList()					//get the accountList which is just retrieve from the file
 	{
 		return accountList;
 	}
 	
-	public static void main(String args[])
+	public static void main(String args[])						//initiate/create an account and store it in the "accF.dat"
 	{
 		AccountList list = new AccountList();
-		list.addAccount();
-		
+		Account account = new Account(123456,123456,5000);
+		list.addAccount(account);
 	}
 }
