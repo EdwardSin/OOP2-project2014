@@ -231,10 +231,4 @@ public class FunctionList extends GuiFrame{
 			
 		}
 	}
-	
-	
-	
-	
-	
-
 }

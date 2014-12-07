@@ -17,14 +17,14 @@ public class SecondMainPage extends GuiFrame{
 	static ArrayList<Account> accountList;
 	static Account account;
 	boolean valid;
-	AccountList accountL;
+	AccountRecord accountR;
 	
 	public SecondMainPage(){
 		
-		accountL = new AccountList();							//Create an object of AccountList
-		accountL.retrieveAccountList();							//retrieve the data of "accF.data" file
+		accountR = new AccountRecord();							//Create an object of AccountRecord
+		accountR.retrieveAccountList();							//retrieve the data of "accF.data" file
 		
-		accountList = accountL.getRetrieveAccountList();		//get the retrieve Account List
+		accountList = accountR.getRetrieveAccountList();		//get the retrieve Account List
 		
 		gui= new GuiFrame();
 		gui.getGuiFrame();
@@ -96,25 +96,28 @@ public class SecondMainPage extends GuiFrame{
 								
 								if(accountNumber == account.getAccountNum() && accountPassword == account.getAccountPass())
 								{
-									index = accountList.indexOf(account);
-									BankSystem bankSystem = new BankSystem();
-									gui.setVisible(false);
 									valid = true;
+									break;
 								}
 								else
 								{
 									valid=false;
-									break;
 								}
 							}
 							if(valid == false)													//display an error message if there is no such kind of account or wrong password
 							{
 								JOptionPane.showMessageDialog(null,"Please enter the valid account number and password","Error!!",JOptionPane.INFORMATION_MESSAGE);
 							}
+							else
+							{
+								index = accountList.indexOf(account);
+									BankSystem bankSystem = new BankSystem();
+									gui.setVisible(false);
+							}
 				}
 				catch(NumberFormatException NFException)
 				{
-					JOptionPane.showMessageDialog(null,"1Please enter the valid account number and password","Error!!",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Please enter the valid account number and password","Error!!",JOptionPane.INFORMATION_MESSAGE);
 				}
 			}	
 		}

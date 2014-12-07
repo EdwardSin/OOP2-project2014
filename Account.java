@@ -1,9 +1,20 @@
 //Account.java
-/**@author Edward Sin
- */ 
+ 
 import java.io.*;
+/**
+ *<h1>Account</h1>
+ *This program creates, modifies and gets
+ *the details of an account<p>
+ *
+ *@author Edward Sin
+ *@version 1.0
+ *@since 2014-04-12
+ */
+
 
 public class Account implements Serializable{
+	
+	
 	private int accountNum;
 	private int accountPass;
 	private double accountBalance;
@@ -16,7 +27,9 @@ public class Account implements Serializable{
 		setAccountBalance(0);
 	}
 	/**Class 1-arg constructor
+	 *
 	 */
+	 
 	public Account(int accountNum)
 	{
 		setAccountNum(accountNum);
@@ -30,26 +43,26 @@ public class Account implements Serializable{
 		setAccountBalance(accountBalance);
 	}
 	/**
-	 *Changes the account number of this account.
+	 *Change the account number of this account.
 	 *This may involve a lengthy legal process.
-	 *@param accountNum This account's new account number.
+	 *@param accountNum An account number.
 	 **/
 	public void setAccountNum(int accountNum)
 	{
 		this.accountNum = accountNum;
 	}
 	/**
-	 *Gets the account number of an account.
-	 *@return this account's account number.
+	 *Get the account number of an account.
+	 *@return get an account number.
 	 */
 	public int getAccountNum()
 	{
 		return accountNum;
 	}
 	/**
-	 *Changes the account password of this account.
+	 *Change the account password of this account.
 	 *This may involve a lengthy legal process.
-	 *@param accountPass This account's new account password.
+	 *@param accountPass An account password.
 	 **/	
 	public void setAccountPass(int accountPass)
 	{
@@ -57,17 +70,17 @@ public class Account implements Serializable{
 	}
 	
 	/**
-	 *Gets the account password of an account.
-	 *@return this account's account password.
+	 *Get the account password of an account.
+	 *@return get an account password.
 	 */
 	public int getAccountPass()
 	{
 		return accountPass;
 	}
 	/**
-	 *Changes the account balance of this account.
+	 *Change the account balance of this account.
 	 *This may involve a lengthy legal process.
-	 *@param accountBalance This account's new account balance.
+	 *@param accountBalance An account balance.
 	 **/
 	public void setAccountBalance(double accountBalance)
 	{
@@ -75,17 +88,17 @@ public class Account implements Serializable{
 	}
 	
 	/**
-	 *Gets the account balance of an account.
-	 *@return this account's account balance.
+	 *Get the account balance of an account.
+	 *@return get an account balance.
 	 */
 	public double getAccountBalance()
 	{
 		return accountBalance;
 	}
 	/**
-	 *Lodge and adding the balance from an account balance.
+	 *Lodge and add the balance from an account balance.
 	 *This may involve a lengthy legal process.
-	 *@param money The lodgement which is required to lodge.
+	 *@param money The amonut which is required to lodge.
 	 **/
 	public void lodgeMoney(int money)
 	{
@@ -95,14 +108,14 @@ public class Account implements Serializable{
 	/**
 	 *Withdraw and deduct the balance from an account balance.
 	 *This may involve a lengthy legal process.
-	 *@param money The withdrawal which is required to withdraw.
+	 *@param money The amount which is required to withdraw.
 	 **/
 	public void withdrawMoney(int money)
 	{
 		this.accountBalance -= money;
 	}
 	/**
-	 *Returened the account number and the balance of an account
+	 *Return the account number and the balance of an account
 	 *@return The details of an account*/
 	public String toString()
 	{
